@@ -1,0 +1,149 @@
+<!-- components/footer.html -->
+<style>
+  /* ---------- Footer ---------- */
+  footer{
+    background:#1B2430;
+    color:#C7CCD3;
+    padding:64px 0 32px;
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  footer .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 0.8fr 0.8fr 1fr;
+    gap:40px;
+    padding-bottom:48px;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  .foot-grid .wordmark{
+    font-family:'Fraunces',serif;
+    font-size:21px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    color:#FFFDFB;
+  }
+  .foot-grid .wordmark .amp{
+    color:#7A1F2B;
+    font-style:italic;
+    font-weight:500;
+  }
+  .foot-grid p{
+    color:#9AA1AC;
+    font-size:14px;
+    max-width:30ch;
+    margin-top:14px;
+    line-height:1.7;
+  }
+  .foot-grid h5{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#9AA1AC;
+    margin:0 0 16px;
+  }
+  .foot-grid ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .foot-grid li{
+    margin-bottom:10px;
+  }
+  .foot-grid a{
+    text-decoration:none;
+    color:#D8DBE0;
+    font-size:14.5px;
+    transition:color 0.2s ease;
+  }
+  .foot-grid a:hover{
+    color:#FFFDFB;
+  }
+  .foot-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:28px;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:12.5px;
+    color:#7B828D;
+  }
+  .foot-bottom a{
+    color:#9AA1AC;
+    text-decoration:none;
+    transition:color 0.2s ease;
+  }
+  .foot-bottom a:hover{
+    color:#FFFDFB;
+  }
+
+  /* Responsive */
+  @media (max-width:900px){
+    .foot-grid{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+  @media (max-width:720px){
+    .foot-grid{
+      grid-template-columns:1fr;
+      gap:30px;
+    }
+    .foot-bottom{
+      flex-direction:column;
+      text-align:center;
+    }
+  }
+</style>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="wordmark">Khares<span class="amp">Law</span></a>
+        <p>Barristers &amp; Solicitors serving Brandfort, Ontario and the surrounding region since 2012.</p>
+      </div>
+      <div>
+        <h5>Practice Areas</h5>
+        <ul>
+          <li><a href="/#docket">Family Law</a></li>
+          <li><a href="/#docket">Criminal Law</a></li>
+          <li><a href="/#docket">Corporate &amp; Commercial</a></li>
+          <li><a href="/#docket">Wills &amp; Estates</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="/#approach">Approach</a></li>
+          <li><a href="/#process">How We Work</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Visit / Contact</h5>
+        <ul>
+          <li>123 Dundas Street, London, ON</li>
+          <li><a href="tel:15190000000">(519) 000-0000</a></li>
+          <li><a href="mailto:intake@harlowebishop.com">intake@harlowebishop.com</a></li>
+          <li>Mon–Fri, 9:00–5:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Khares Law. This website does not provide legal advice.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
