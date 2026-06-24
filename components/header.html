@@ -1,0 +1,220 @@
+<!-- components/header.html -->
+<style>
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,243,238,0.94);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line, #D8D3C6);
+    transition:box-shadow 0.3s ease;
+  }
+  header.scrolled{
+    box-shadow:0 4px 20px rgba(27,36,48,0.08);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;
+    max-width:1180px;margin:0 auto;
+  }
+  .wordmark{
+    font-family:'Fraunces',serif;
+    font-size:21px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    display:flex;align-items:baseline;gap:6px;
+    color:#1B2430;
+  }
+  .wordmark .amp{color:#7A1F2B;font-style:italic;font-weight:500;}
+
+  nav.links a{
+    text-decoration:none;
+    font-size:14.5px;
+    font-weight:500;
+    color:#1B2430;
+    position:relative;
+    padding:4px 0;
+    transition:color 0.2s ease;
+  }
+  nav.links a:not(.btn)::after{
+    content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;
+    background:#7A1F2B;transform:scaleX(0);transform-origin:left;
+    transition:transform .25s ease;
+  }
+  nav.links a:not(.btn):hover{color:#7A1F2B;}
+  nav.links a:not(.btn):hover::after{transform:scaleX(1);}
+
+  .btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    background:#1B2430;
+    color:#FFFDFB !important;
+    padding:11px 18px;
+    border-radius:2px;
+    border:1px solid #1B2430;
+    transition:all .2s ease;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+  .btn:hover{
+    background:transparent;
+    color:#1B2430 !important;
+    transform:translateY(-1px);
+    box-shadow:0 4px 12px rgba(27,36,48,0.15);
+  }
+
+  /* Mobile Menu Button */
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+    color:#1B2430;
+    transition:color 0.2s ease;
+    z-index:51;
+  }
+  .menu-toggle:hover{color:#7A1F2B;}
+  .menu-toggle .bar{
+    display:block;
+    width:24px;
+    height:2px;
+    background:currentColor;
+    margin:5px 0;
+    transition:all 0.3s ease;
+    border-radius:2px;
+    transform-origin:center;
+  }
+  .menu-toggle.active .bar:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .menu-toggle.active .bar:nth-child(2){opacity:0;}
+  .menu-toggle.active .bar:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+  /* Desktop nav */
+  @media (min-width:721px){
+    nav.links{
+      display:flex;
+      gap:32px;
+      align-items:center;
+    }
+  }
+
+  /* Mobile nav */
+  @media (max-width:720px){
+    .menu-toggle{display:block;}
+
+    nav.links{
+      display:flex;
+      flex-direction:column;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      padding:24px 28px;
+      gap:20px;
+      background:rgba(245,243,238,0.98);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-bottom:1px solid #D8D3C6;
+      box-shadow:0 4px 20px rgba(27,36,48,0.06);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-8px);
+      transition:opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+      pointer-events:none;
+    }
+    nav.links.active{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+      transition:opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s;
+      pointer-events:auto;
+    }
+  }
+</style>
+
+<header id="header">
+  <div class="nav">
+    <a href="/" class="wordmark">Khares<span class="amp">Law</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="links" id="navLinks">
+      <a href="/#docket">Practice Areas</a>
+      <a href="/#approach">Approach</a>
+      <a href="/#process">How We Work</a>
+      <a href="/#contact" class="btn">Book a Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function() {
+  function init() {
+    const header = document.getElementById('header');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (!header || !menuToggle || !navLinks) {
+      requestAnimationFrame(init);
+      return;
+    }
+
+    if (menuToggle.dataset.initialized === 'true') return;
+    menuToggle.dataset.initialized = 'true';
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        menuToggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720 && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
