@@ -1,0 +1,606 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khares Law — Family, Criminal, Corporate &amp; Estate Law</title>
+<meta name="description" content="Khares Law. Counsel in Family Law, Criminal Law, Corporate & Commercial Law, and Wills & Estates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#F5F3EE;
+    --paper-deep:#ECE8DF;
+    --burgundy:#7A1F2B;
+    --brass:#A9824F;
+    --slate:#5C6470;
+    --line:#D8D3C6;
+    --white:#FFFDFB;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+  }
+  :focus-visible{
+    outline:2px solid var(--burgundy);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    top:-200px;
+    right:-200px;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(122,31,43,0.06);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:48px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .hero-copy .eyebrow{margin-bottom:18px;display:block;}
+  .hero h1{
+    font-size:clamp(34px,4.6vw,58px);
+    max-width:13ch;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--burgundy);font-weight:500;
+  }
+  .hero p.lede{
+    margin:24px 0 34px;
+    font-size:18px;
+    color:var(--slate);
+    max-width:42ch;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:30px;}
+  .hero-meta{
+    display:flex;gap:28px;flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    max-width:46ch;
+  }
+  .hero-meta span b{color:var(--ink);font-weight:500;}
+
+  .seal-wrap{
+    position:relative;
+    display:flex;justify-content:center;align-items:center;
+    aspect-ratio:1/1;
+  }
+  .seal{
+    width:100%;max-width:340px;
+    animation:rotate 38s linear infinite;
+  }
+  @keyframes rotate{to{transform:rotate(360deg);}}
+  .seal-center{
+    position:absolute;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:15px;
+    color:var(--ink);
+    text-align:center;
+    line-height:1.3;
+  }
+
+  /* ---------- Section shells ---------- */
+  section{padding:84px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:48px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(26px,3vw,36px);max-width:20ch;}
+  .section-head .eyebrow{margin-bottom:10px;display:block;}
+  .section-head p{color:var(--slate);max-width:34ch;margin:0;font-size:15px;}
+
+  /* ---------- Docket / Practice areas ---------- */
+  .docket{
+    border:1px solid var(--line);
+    background:var(--white);
+    box-shadow:0 1px 3px rgba(27,36,48,0.04);
+  }
+  .docket-row{
+    display:grid;
+    grid-template-columns:140px 1fr 1.4fr 110px;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+    padding:30px 28px;
+    gap:24px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:all .25s ease;
+  }
+  .docket-row:last-child{border-bottom:none;}
+  .docket-row:hover{
+    background:var(--paper-deep);
+    transform:translateX(4px);
+  }
+  .docket-code{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--burgundy);
+    letter-spacing:0.04em;
+  }
+  .docket-code small{
+    display:block;color:var(--slate);font-size:10.5px;letter-spacing:0.1em;margin-top:4px;
+  }
+  .docket-name{font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+  .docket-desc{color:var(--slate);font-size:15px;}
+  .docket-arrow{
+    justify-self:end;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .docket-arrow svg{width:16px;height:16px;transition:transform .25s ease;}
+  .docket-row:hover .docket-arrow svg{transform:translateX(4px);}
+
+  /* ---------- Process ---------- */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .step{
+    background:var(--paper);
+    padding:32px 26px 36px;
+    position:relative;
+    transition:background 0.25s ease;
+  }
+  .step:hover{background:var(--white);}
+  .step .num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--brass);
+    display:block;margin-bottom:22px;
+  }
+  .step h3{font-size:18px;margin-bottom:10px;}
+  .step p{font-size:14.5px;color:var(--slate);}
+
+  /* ---------- Ledger / stats ---------- */
+  .ledger{
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .ledger::before{
+    content:'';
+    position:absolute;
+    bottom:-100px;
+    left:-100px;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .ledger .section-head h2,
+  .ledger .section-head p{color:var(--paper);position:relative;}
+  .ledger .section-head p{color:#B9BFC8;}
+  .ledger-table{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(255,255,255,0.16);
+    position:relative;
+  }
+  .ledger .eyebrow{color:#E8DCC8;}
+  .ledger-cell{
+    padding:30px 24px;
+    border-right:1px solid rgba(255,255,255,0.16);
+    border-bottom:1px solid rgba(255,255,255,0.16);
+    transition:background 0.25s ease;
+  }
+  .ledger-cell:hover{background:rgba(255,255,255,0.03);}
+  .ledger-cell:nth-child(4n){border-right:none;}
+  .ledger-cell .figure{
+    font-family:'Fraunces',serif;
+    font-size:38px;
+    font-weight:600;
+    color:var(--white);
+  }
+  .ledger-cell .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#9AA1AC;
+    margin-top:8px;
+  }
+
+  /* ---------- About / approach ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:36px;
+    box-shadow:0 1px 3px rgba(27,36,48,0.04);
+  }
+  .about-card .eyebrow{display:block;margin-bottom:14px;}
+  .about-card h3{font-size:24px;margin-bottom:16px;max-width:18ch;}
+  .about-card p{color:var(--slate);font-size:15px;}
+  .about-list{list-style:none;}
+  .about-list li{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:18px;
+    transition:padding 0.2s ease;
+  }
+  .about-list li:hover{padding-left:4px;}
+  .about-list li:first-child{padding-top:0;}
+  .about-list .mark{color:var(--burgundy);font-family:'Fraunces',serif;font-style:italic;font-size:18px;}
+  .about-list h4{font-family:'Fraunces',serif;font-weight:600;font-size:17px;margin-bottom:6px;}
+  .about-list p{color:var(--slate);font-size:14.5px;}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--burgundy);
+    color:var(--white);
+    text-align:center;
+    padding:80px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-band::before{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:400px;
+    height:400px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .cta-band h2{
+    color:var(--white);
+    font-size:clamp(28px,4vw,42px);
+    max-width:24ch;
+    margin:0 auto 16px;
+    position:relative;
+  }
+  .cta-band p{
+    color:#E9D2D6;
+    max-width:46ch;
+    margin:0 auto 32px;
+    font-size:16px;
+    position:relative;
+  }
+  .cta-band .btn{
+    background:var(--white);
+    color:var(--burgundy) !important;
+    border-color:var(--white);
+    position:relative;
+  }
+  .cta-band .btn:hover{
+    background:transparent;
+    color:var(--white) !important;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  }
+  .cta-band .btn.ghost{
+    border-color:rgba(255,255,255,0.6);
+    color:var(--white) !important;
+  }
+  .cta-band .btn.ghost:hover{
+    background:var(--white);
+    color:var(--burgundy) !important;
+  }
+  .cta-actions{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+    position:relative;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .seal-wrap{order:-1;max-width:240px;margin:0 auto;}
+    .about{grid-template-columns:1fr;}
+    .process{grid-template-columns:repeat(2,1fr);}
+    .ledger-table{grid-template-columns:repeat(2,1fr);}
+    .ledger-cell:nth-child(2n){border-right:none;}
+  }
+  @media (max-width:720px){
+    .docket-row{
+      grid-template-columns:1fr;
+      text-align:left;
+      gap:10px;
+    }
+    .docket-arrow{justify-self:start;}
+    .process{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header-placeholder"></div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Barristers &amp; Solicitors — Brantford, Ontario</span>
+          <h1>Counsel for the moments that <em>change everything.</em></h1>
+          <p class="lede">Family breakdowns, criminal charges, business disputes, and the planning that protects what comes after — we've stood beside clients through all four, and we keep the file moving when it matters most.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn">Book a Consultation</a>
+            <a href="tel:15190000000" class="btn ghost">Call (519) 000-0000</a>
+          </div>
+          <div class="hero-meta">
+            <span>Founded <b>1998</b></span>
+            <span>Cases handled <b>4,200+</b></span>
+            <span>Response time <b>Within 24 hrs</b></span>
+          </div>
+        </div>
+
+        <div class="seal-wrap" aria-hidden="true">
+          <svg class="seal" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="150" r="148" fill="none" stroke="#1B2430" stroke-width="1"/>
+            <circle cx="150" cy="150" r="128" fill="none" stroke="#1B2430" stroke-width="1"/>
+            <path id="circlePath" d="M150,22 A128,128 0 1 1 149.9,22" fill="none"/>
+            <text font-family="JetBrains Mono, monospace" font-size="11.5" letter-spacing="3" fill="#7A1F2B">
+              <textPath href="#circlePath" startOffset="0%">
+                FAMILY · CRIMINAL · CORPORATE &amp; COMMERCIAL · WILLS &amp; ESTATES ·
+              </textPath>
+            </text>
+            <circle cx="150" cy="150" r="92" fill="none" stroke="#A9824F" stroke-width="1"/>
+          </svg>
+          <div class="seal-center">Khares<br>Law</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCKET -->
+    <section id="docket">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">The Docket</span>
+            <h2>Four practices, one file room.</h2>
+          </div>
+          <p>Every matter we take on is filed, tracked, and worked the same way — whatever area of law it falls under.</p>
+        </div>
+        <div class="docket">
+          <a class="docket-row" href="#contact">
+            <span class="docket-code">FAM&nbsp;—&nbsp;01<small>FAMILY LAW</small></span>
+            <span class="docket-name">Family Law</span>
+            <span class="docket-desc">Separation, divorce, custody and support, and property division — handled with a clear head when emotions are running high.</span>
+            <span class="docket-arrow">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="docket-row" href="#contact">
+            <span class="docket-code">CRIM&nbsp;—&nbsp;02<small>CRIMINAL LAW</small></span>
+            <span class="docket-name">Criminal Law</span>
+            <span class="docket-desc">Defence against charges from summary offences to serious indictable matters, built from the first call, not the first hearing.</span>
+            <span class="docket-arrow">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="docket-row" href="#contact">
+            <span class="docket-code">CORP&nbsp;—&nbsp;03<small>CORPORATE &amp; COMMERCIAL</small></span>
+            <span class="docket-name">Corporate &amp; Commercial</span>
+            <span class="docket-desc">Incorporations, shareholder agreements, commercial contracts, and the deals that keep a business moving forward.</span>
+            <span class="docket-arrow">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="docket-row" href="#contact">
+            <span class="docket-code">EST&nbsp;—&nbsp;04<small>WILLS &amp; ESTATES</small></span>
+            <span class="docket-name">Wills &amp; Estates</span>
+            <span class="docket-desc">Wills, powers of attorney, and estate administration — plans that hold up and are simple for your family to follow.</span>
+            <span class="docket-arrow">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">How We Work</span>
+            <h2>One process, start to close.</h2>
+          </div>
+          <p>The order doesn't change — only the law underneath it does.</p>
+        </div>
+        <div class="process">
+          <div class="step">
+            <span class="num">01 / Consult</span>
+            <h3>We hear the file</h3>
+            <p>A direct conversation with the lawyer who'll handle your matter — not an intake form.</p>
+          </div>
+          <div class="step">
+            <span class="num">02 / Assess</span>
+            <h3>We map the position</h3>
+            <p>What the law allows, what the other side is likely to do, and what outcome is realistic.</p>
+          </div>
+          <div class="step">
+            <span class="num">03 / Act</span>
+            <h3>We move the file</h3>
+            <p>Filings, negotiations, and hearings, on a timeline you're told about in advance, not after.</p>
+          </div>
+          <div class="step">
+            <span class="num">04 / Resolve</span>
+            <h3>We close it properly</h3>
+            <p>Settlement, judgment, or signed document — and a plain explanation of what it means for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEDGER -->
+    <section class="ledger">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">On the Record</span>
+            <h2>Twenty-six years of files closed.</h2>
+          </div>
+          <p>A practice measured the way a firm should be — by what got resolved.</p>
+        </div>
+        <div class="ledger-table">
+          <div class="ledger-cell"><div class="figure">26</div><div class="label">Years in practice</div></div>
+          <div class="ledger-cell"><div class="figure">4,200+</div><div class="label">Matters handled</div></div>
+          <div class="ledger-cell"><div class="figure">4</div><div class="label">Areas of law</div></div>
+          <div class="ledger-cell"><div class="figure">24 hrs</div><div class="label">Avg. response time</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach">
+      <div class="wrap about">
+        <div class="about-card">
+          <span class="eyebrow">Why Khares Law</span>
+          <h3>Senior lawyers handle your file. Not a rotating roster of associates.</h3>
+          <p>From your first call to your last signature, the lawyer you meet is the lawyer who appears for you — in negotiation, in mediation, and in court. No hand-offs, no re-explaining your case to someone new.</p>
+        </div>
+        <ul class="about-list">
+          <li>
+            <span class="mark">§</span>
+            <div>
+              <h4>Plain-language advice</h4>
+              <p>We explain your options in terms you can act on, not legal shorthand you have to look up later.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">§</span>
+            <div>
+              <h4>Fixed-fee options where possible</h4>
+              <p>For wills, incorporations, and many family matters, you'll know the cost before we start.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">§</span>
+            <div>
+              <h4>Direct access to your lawyer</h4>
+              <p>A phone number and inbox that reach the person actually working your file.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">§</span>
+            <div>
+              <h4>Local courts, local courtesy</h4>
+              <p>Decades of standing before the same registrars, judges, and opposing counsel in this region.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" id="contact">
+      <div class="wrap">
+        <h2>Tell us what's in front of you. We'll tell you what to do next.</h2>
+        <p>A first consultation costs you twenty minutes. It usually saves a great deal more than that.</p>
+        <div class="cta-actions">
+          <a href="tel:15190000000" class="btn">Call (519) 000-0000</a>
+          <a href="mailto:intake@khareslaw.com" class="btn ghost">intake@khareslaw.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- FETCH COMPONENTS -->
+  <script>
+    async function loadComponent(id, path) {
+      try {
+        const res = await fetch(path);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const html = await res.text();
+        const placeholder = document.getElementById(id);
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+
+        // Grab references to all scripts BEFORE moving nodes
+        const scripts = Array.from(temp.querySelectorAll('script'));
+
+        // Move all nodes (header, styles, scripts) into the real DOM
+        while (temp.firstChild) {
+          placeholder.parentNode.insertBefore(temp.firstChild, placeholder);
+        }
+        placeholder.remove();
+
+        // Re-create and re-insert each script so it executes
+        scripts.forEach(oldScript => {
+          const newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+          });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      } catch (e) {
+        console.error(`Failed to load ${path}:`, e);
+      }
+    }
+
+    loadComponent('header-placeholder', '/components/header.html');
+    loadComponent('footer-placeholder', '/components/footer.html');
+  </script>
+
+</body>
+</html>
